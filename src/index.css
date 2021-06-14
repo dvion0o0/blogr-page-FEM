@@ -1,13 +1,582 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap");
+
+:root {
+  --lightRed: hsl(356, 100%, 66%);
+  --veryLightRed: hsl(355, 100%, 74%);
+  --darkBlue: hsl(208, 49%, 24%);
+  --white: hsl(0, 0%, 100%);
+  --footerText: hsl(240, 2%, 79%);
+  --body: hsl(207, 13%, 34%);
+  --footerBackground: hsl(240, 10%, 16%);
+  --linearGradient1: linear-gradient(hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+  --linearGradient2: linear-gradient(hsl(237, 17%, 21%), hsl(237, 23%, 32%));
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-size: 16px;
+  font-family: "Overpass", sans-serif;
+  font-weight: 300;
+  color: var(--body);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  color: var(--white);
+  font-family: "Overpass", sans-serif;
+  font-size: 600;
+}
+
+p {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  background: url(./images/bg-pattern-intro.svg), var(--linearGradient1);
+  background-position: center;
+  background-size: initial;
+  min-height: 80vh;
+  border-bottom-left-radius: 8rem;
+  position: relative;
+}
+
+.header-center {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+nav {
+  padding-top: 3rem;
+  display: flex;
+  align-items: center;
+  z-index: 999;
+}
+
+.nav-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  margin-left: 3rem;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links li {
+  margin-right: 1rem;
+  color: var(--white);
+  cursor: pointer;
+  opacity: 0.75;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: 0.3s all linear;
+  z-index: 999;
+}
+
+.nav-links li svg {
+  transition: 0.5s all ease-in-out;
+  font-size: 18px;
+}
+
+.arrow {
+  transform: rotate(180deg);
+}
+
+.nav-links li:hover {
+  border-bottom: 2px solid var(--white);
+}
+
+.nav-menu {
+  position: absolute;
+  content: "";
+  top: 150%;
+  background: var(--white);
+  padding: 1rem 2.5rem;
+  color: var(--body);
+  display: grid;
+  gap: 0.5rem;
+  border-radius: 7px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.nav-menu a {
+  transition: 0.2s all linear;
+  font-size: 20px;
+  color: var(--body);
+}
+
+.nav-menu a:hover {
+  font-weight: 700;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.nav-btns {
+  display: none;
+  justify-content: space-between;
+}
+
+.nav-btn {
+  background: none;
+  border: transparent;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.nav-btn:last-child {
+  margin-left: 1.5rem;
+  padding: 0.75rem 2rem;
+  border-radius: 500px;
+  background: var(--white);
+  border: transparent;
+  color: var(--lightRed);
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  cursor: pointer;
+}
+
+.nav-btn:last-child:hover {
+  background: var(--veryLightRed);
+  color: var(--white);
+}
+
+.toggle {
+  cursor: pointer;
+}
+
+.hero-content {
+  position: absolute;
+  top: 40%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  left: 5%;
+  right: 5%;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  width: 18rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  color: var(--white);
+  width: 18rem;
+  opacity: 0.6;
+}
+
+.hero-btns {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.hero-btn {
+  padding: 0.75rem 0.75rem;
+  border-radius: 500px;
+  background: var(--white);
+  border: transparent;
+  color: var(--lightRed);
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.hero-btn:hover {
+  background: var(--veryLightRed);
+  color: var(--white);
+}
+
+.hero-btn:last-child {
+  background: transparent;
+  border: 1px solid var(--white);
+  color: var(--white);
+}
+
+.hero-btn:last-child:hover {
+  border: transparent;
+  color: var(--lightRed);
+  background: var(--white);
+}
+
+@media screen and (min-width: 768px) {
+  .hero-content h1 {
+    width: 100%;
+    font-size: 42px;
+  }
+
+  .hero-content p {
+    width: 100%;
+  }
+
+  .toggle {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+  }
+
+  .nav-btns {
+    display: flex;
+  }
+}
+
+aside {
+  position: absolute;
+  background: var(--white);
+  padding: 2rem;
+  top: 17%;
+  left: 105%;
+  right: 5%;
+  width: 90%;
+  z-index: 9999;
+  border-radius: 7px;
+  transition: 0.3s all linear;
+  box-shadow: 1px 1px 7px 2px rgba(0, 0, 0, 0.1);
+}
+.side-links {
+  display: grid;
+  text-align: center;
+  row-gap: 1rem;
+}
+
+.side-links li {
+  font-weight: 700;
+  color: var(--darkBlue);
+  cursor: pointer;
+}
+
+.side-links li svg {
+  color: var(--lightRed);
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.side-menu {
+  margin-top: 0.5rem;
+  display: grid;
+  row-gap: 0.5rem;
+  background: var(--footerText);
+  padding: 1rem;
+  border-radius: 7px;
+}
+
+.side-menu a {
+  color: var(--body);
+  font-weight: 500;
+  transition: 0.3s all linear;
+}
+
+.side-menu a:hover {
+  font-weight: 700;
+}
+
+.side-btns {
+  display: grid;
+  place-items: center;
+  row-gap: 1rem;
+}
+
+aside hr {
+  border: 1px solid var(--footerText);
+  margin: 2rem 0;
+}
+
+.side-btn {
+  background: none;
+  border: transparent;
+  color: var(--darkBlue);
+  font-weight: 700;
+  cursor: pointer;
+  font-family: "Ubuntu", sans-serif;
+  transition: 0.3s all linear;
+}
+
+.side-btn:last-child {
+  margin-left: 1.5rem;
+  padding: 0.75rem 2rem;
+  border-radius: 500px;
+  background: linear-gradient(
+    to right,
+    hsl(13, 100%, 72%),
+    hsl(353, 100%, 62%)
+  );
+  border: transparent;
+  color: var(--white);
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  cursor: pointer;
+}
+
+.side-btn:last-child:hover {
+  background: var(--veryLightRed);
+  color: var(--white);
+}
+
+.show {
+  left: 5%;
+  transition: 0.3s all linear;
+}
+
+@media screen and (min-width: 768px) {
+  aside {
+    display: none;
+  }
+}
+
+.products {
+  padding: 5rem 0;
+}
+
+.products h2 {
+  color: var(--darkBlue);
+  text-align: center;
+}
+
+.product-center {
+  width: 85vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+}
+
+.product-img-container {
+  margin: 2rem 0;
+}
+
+.product-img-container img {
+  width: 100%;
+}
+
+.product-contents {
+  display: grid;
+  row-gap: 2rem;
+}
+
+.product-content {
+  text-align: center;
+}
+
+.product-content h2 {
+  margin-bottom: 1rem;
+}
+
+.product-content p {
+  font-weight: 300;
+  font-family: "Overpass", sans-serif;
+  color: var(--body);
+}
+
+@media screen and (min-width: 768px) {
+  .product-center {
+    grid-template-columns: 50% 50%;
+    margin-top: 4rem;
+  }
+
+  .product-contents {
+    order: -1;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
+
+  .product-content {
+    text-align: left;
+  }
+
+  .product-content h2 {
+    text-align: left;
+    font-size: 32px;
+  }
+
+  .product-img-container {
+    transform: translate(30%, -20%);
+    width: 700px;
+    margin: 0;
+  }
+
+  .about .product-center .product-contents {
+    order: 0;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
+
+  .about .product-center .product-img-container {
+    transform: translate(-30%);
+  }
+}
+
+.company {
+  background: url(./images//bg-pattern-circles.svg), var(--linearGradient2);
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* background-position: -1rem -100%; */
+  border-top-right-radius: 5rem;
+  border-bottom-left-radius: 5rem;
+  margin-top: 2rem;
+}
+
+.company-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+}
+
+.company-center img {
+  width: 100%;
+  height: 100%;
+  transform: translateY(-20%);
+}
+
+.company-content {
+  display: grid;
+  text-align: center;
+  place-items: center;
+  transform: translateY(-30%);
+}
+
+.company-content h2 {
+  width: 18rem;
+  font-weight: 700;
+  font-family: "Ubuntu", sans-serif;
+  line-height: 1.5;
+}
+
+.company-content p {
+  color: var(--white);
+  font-weight: 300;
+  font-family: "Overpass", sans-serif;
+  margin-top: 1rem;
+  width: 18rem;
+}
+
+@media screen and (min-width: 768px) {
+  .company {
+    margin-top: 0;
+  }
+
+  .company-center {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .company-center img {
+    transform: translateY(-10%);
+  }
+
+  .company-content {
+    transform: translateX(0);
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    text-align: left;
+  }
+
+  .company-content h2 {
+    width: 100%;
+  }
+
+  .company-content p {
+    width: 100%;
+  }
+}
+
+footer {
+  background: var(--footerBackground);
+  padding: 3rem 0 1rem 0;
+  margin-top: 5rem;
+  border-top-right-radius: 5rem;
+}
+
+.footer-center {
+  width: 90vw;
+  max-width: 1170px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+}
+
+.footer-links {
+  margin-top: 2rem;
+}
+
+.footer-links h4 {
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.footer-links li {
+  cursor: pointer;
+  color: var(--footerText);
+  margin-bottom: 0.4rem;
+  transition: 0.3s all linear;
+}
+
+.footer-links li:hover {
+  font-weight: 700;
+  color: var(--white);
+}
+
+footer p {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--white);
+}
+
+footer p > span {
+  color: var(--lightRed);
+}
+
+@media screen and (min-width: 768px) {
+  footer {
+    padding: 4rem 0 2rem 0;
+  }
+  .footer-center {
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+  }
+
+  .footer-links {
+    align-self: start;
+  }
+  .footer-center img {
+    align-self: start;
+  }
 }
