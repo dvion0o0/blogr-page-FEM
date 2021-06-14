@@ -490,6 +490,7 @@ aside hr {
 @media screen and (min-width: 768px) {
   .company {
     margin-top: 0;
+    height: 300px;
   }
 
   .company-center {
@@ -499,10 +500,11 @@ aside hr {
 
   .company-center img {
     transform: translateY(-10%);
+    width: 90%;
   }
 
   .company-content {
-    transform: translateX(0);
+    /* transform: translateX(0); */
     display: flex;
     flex-direction: column;
     align-self: center;
