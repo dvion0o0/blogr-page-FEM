@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../images/logo.svg";
 import HamBurger from "../images/icon-hamburger.svg";
 import LinksData from "./linkData";
-import Link from "./Link";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 function Navbar({ handleToggle }) {
+  const [clicked, setClicked] = useState(null);
+
+  const handleClick = (index) => {
+    if (index === clicked) {
+      setClicked(null);
+    } else {
+      setClicked(index);
+    }
+  };
+
   return (
     <nav>
       <div className="nav-center">
@@ -12,7 +22,25 @@ function Navbar({ handleToggle }) {
           <img src={Logo} alt="logo" />
           <ul className="nav-links">
             {LinksData.map((item, index) => {
-              return <Link key={index} item={item} />;
+              return (
+                <li onClick={() => handleClick(index)}>
+                  {item.name}{" "}
+                  <IoMdArrowDropdown
+                    className={`${clicked === index ? "arrow" : null}`}
+                  />
+                  {clicked === index && (
+                    <div className="nav-menu">
+                      {item.content.map((item) => {
+                        return (
+                          <a href="/" key={item.id}>
+                            {item}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  )}
+                </li>
+              );
             })}
           </ul>
         </div>

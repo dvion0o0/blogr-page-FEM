@@ -272,6 +272,7 @@ aside {
   display: grid;
   text-align: center;
   row-gap: 1rem;
+  width: 100%;
 }
 
 .side-links li {
@@ -290,7 +291,7 @@ aside {
   margin-top: 0.5rem;
   display: grid;
   row-gap: 0.5rem;
-  background: var(--footerText);
+  background: #efeff1;
   padding: 1rem;
   border-radius: 7px;
 }
@@ -307,7 +308,7 @@ aside {
 
 .side-btns {
   display: grid;
-  place-items: center;
+  text-align: center;
   row-gap: 1rem;
 }
 
@@ -361,6 +362,7 @@ aside hr {
 
 .products {
   padding: 5rem 0;
+  overflow: hidden;
 }
 
 .products h2 {
@@ -504,7 +506,7 @@ aside hr {
   }
 
   .company-content {
-    /* transform: translateX(0); */
+    transform: translateY(-100%);
     display: flex;
     flex-direction: column;
     align-self: center;
